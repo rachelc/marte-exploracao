@@ -21,8 +21,15 @@ public class Nasa {
 	
 	
 	private String nextSonda(Planalto planalto, String coordenadas, String instrucoes){
-		Sonda sonda = new Sonda(1, 2, Coordenada.N, planalto);
-		return sonda.move(instrucoes);
+		
+		StringTokenizer st = new StringTokenizer(coordenadas, " ");
+		
+		Integer x = Integer.parseInt(st.nextToken());
+		Integer y = Integer.parseInt(st.nextToken());
+		String direcao = st.nextToken();
+				
+		Sonda sonda = new Sonda(x, y, Direcao.valueOf(direcao), planalto);
+		return sonda.execute(instrucoes);
 	}
 		
 }

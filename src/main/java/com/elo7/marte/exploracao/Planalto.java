@@ -9,4 +9,14 @@ public class Planalto {
 		this.x = x;
 		this.y = y;
 	}
+
+	public Integer getX() {
+		return this.x;
+	}
+
+	public Integer getY() {
+		return this.y;
+	}
+	
+	
 }
