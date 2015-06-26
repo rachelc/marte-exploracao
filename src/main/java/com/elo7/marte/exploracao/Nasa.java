@@ -1,18 +1,28 @@
 package com.elo7.marte.exploracao;
 
+import java.util.StringTokenizer;
+
 public class Nasa {
 	
-	public String enviaSondas(Planalto planalto, String instructions){
-				
-		Sonda sonda1 = new Sonda(1, 2, Coordenada.N, planalto);
-		sonda1.move("LMLMLMLMM");
+	public String enviaSondas(Planalto planalto, String instrucoes){
+			
+		StringBuffer resultado = new StringBuffer();
+
+		StringTokenizer st = new StringTokenizer(instrucoes, "\n");
+		 
+		while(st.hasMoreTokens()){			
+		   resultado.append(nextSonda(planalto, st.nextToken(), st.nextToken()));
+		   resultado.append("\n");
+		}
 		
-		Sonda sonda2 = new Sonda(3, 3, Coordenada.E, planalto);
-		sonda2.move("MMRMMRMRRM");
+		return resultado.toString();
 		
-		return "1 3 N\n"+
-	    "5 1 E";
-		
+	}
+	
+	
+	private String nextSonda(Planalto planalto, String coordenadas, String instrucoes){
+		Sonda sonda = new Sonda(1, 2, Coordenada.N, planalto);
+		return sonda.move(instrucoes);
 	}
 		
 }

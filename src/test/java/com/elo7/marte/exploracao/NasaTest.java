@@ -9,19 +9,18 @@ public class NasaTest {
 	 public void testEnviaDuasSondas() {
 		 
 		 String retornoEsperado = "1 3 N\n"+
-				    			  "5 1 E";
+				    			  "5 1 E\n";
 		 
 		Nasa nasa = new Nasa();
 			
 		Planalto planalto = new Planalto(5, 5);
 			
-		String instructions = "5 5\n"+
-					  "1 2 N\n"+
-					  "LMLMLMLMM\n"+
-					  "3 3 E\n"+
-					  "MMRMMRMRRM\n";
+		String instrucoes = "1 2 N\n"+
+					  		  "LMLMLMLMM\n"+
+					  		  "3 3 E\n"+
+					  		  "MMRMMRMRRM\n";
 		 
-	 	 assertEquals(retornoEsperado, nasa.enviaSondas(planalto, instructions));
+	 	 assertEquals(retornoEsperado, nasa.enviaSondas(planalto, instrucoes));
 	 }
 	 
 }

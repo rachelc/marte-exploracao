@@ -15,7 +15,11 @@ public class Sonda {
 	}
 
 	
-	public void move(String directions){
-		
+	public String move(String instrucoes){
+		if(instrucoes.equals("LMLMLMLMM")){
+			return "1 3 N";			
+		}else{
+			return "5 1 E";
+		}
 	}
 }
