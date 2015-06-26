@@ -5,46 +5,37 @@ import java.util.Map;
 
 public enum Direcao {
 	
-	N("N", 0), E("E", 1), S("S", 2), W("W", 3);
-	
-	private String direcao;
-	private Integer valor;
+	N, E, S, W;
 	
 	private static Map<Integer, Direcao> mapDirecoes = new HashMap<Integer, Direcao>();
 	
 	static{
 		Direcao[] direcoes = Direcao.values();
 		for(Direcao direcao:direcoes){
-			mapDirecoes.put(direcao.valor, direcao);
+			mapDirecoes.put(direcao.ordinal(), direcao);
 		}
 	}
-	
-				
-	private Direcao(String coordenada, Integer valor){
-		this.direcao = coordenada;
-		this.valor = valor;
-	}
-	
+					
 	
 	public Direcao viraDireita(){
 		
-		Integer novoValor = valor+1;
-		if(novoValor > 3){
-			novoValor = 0;
+		Integer novaDirecao = ordinal()+1;
+		if(novaDirecao > 3){
+			novaDirecao = 0;
 		}
 		
-		return mapDirecoes.get(novoValor);
+		return mapDirecoes.get(novaDirecao);
 	}
 	
 	
 	public Direcao viraEsquerda(){
 
-		Integer novoValor = valor-1;
-		if(novoValor < 0){
-			novoValor = 3;
+		Integer novaDirecao = this.ordinal()-1;
+		if(novaDirecao < 0){
+			novaDirecao = 3;
 		}
 		
-		return mapDirecoes.get(novoValor);
+		return mapDirecoes.get(novaDirecao);
 		
 	}
 		
