@@ -2,14 +2,14 @@ package com.elo7.marte.exploracao;
 
 public class Sonda {
 	
-	private Integer x;
-	private Integer y;
+	private Integer idSonda;
+	private Coordenada coordenada;
 	private Direcao direcao;
 	private Planalto planalto;
 	
-	public Sonda(Integer x, Integer y, Direcao direcao, Planalto planalto){
-		this.x = x;
-		this.y = y;
+	public Sonda(Integer idSonda, Coordenada coordenada, Direcao direcao, Planalto planalto){
+		this.idSonda = idSonda;
+		this.coordenada = coordenada;
 		this.direcao = direcao;
 		this.planalto = planalto;
 	}
@@ -36,44 +36,41 @@ public class Sonda {
 	
 	private void mover(){
 		
-		if(direcao.equals(Direcao.N)){
-			y++;
+		if(direcao.equals(Direcao.N) &&
+		   this.coordenada.getY() < planalto.getCoordenadaMaxima().getY()){
+		   this.coordenada.addY(1);
 		}
 		
-		if(direcao.equals(Direcao.S)){
-			y--;
+		if(direcao.equals(Direcao.S) &&
+		   this.coordenada.getY() > 0){
+			this.coordenada.addY(-1);
 		}
 
-		if(direcao.equals(Direcao.E)){
-			x++;
+		if(direcao.equals(Direcao.E) &&
+		   this.coordenada.getX() < planalto.getCoordenadaMaxima().getX()){
+			this.coordenada.addX(1);
 		}
 
-		if(direcao.equals(Direcao.W)){
-			x--;
+		if(direcao.equals(Direcao.W) &&
+			this.coordenada.getX() > 0){
+			this.coordenada.addX(-1);
 		}
-		
-		if(y > planalto.getY()){
-			y = planalto.getY();
-		}
+						
+	}
 
-		if(x > planalto.getX()){
-			x = planalto.getX();
-		}
-		
-		if(y < 0){
-			y = 0;
-		}
+	public Integer getIdSonda() {
+		return idSonda;
+	}
 
-		if(x < 0){
-			x = 0;
-		}		
-		
+
+	public void setIdSonda(Integer idSonda) {
+		this.idSonda = idSonda;
 	}
 
 
 	@Override
 	public String toString() {
-		return x+" "+y+" "+direcao;
+		return coordenada.getX()+" "+coordenada.getY()+" "+direcao;
 	}
 	
 	

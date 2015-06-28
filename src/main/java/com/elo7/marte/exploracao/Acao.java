@@ -17,7 +17,7 @@ public enum Acao {
 			return MOVER;
 		}		
 		
-		throw new IllegalArgumentException();
+		throw new IllegalArgumentException("Ação inválida "+acao);
 	}
 	
 }

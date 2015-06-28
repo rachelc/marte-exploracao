@@ -2,21 +2,14 @@ package com.elo7.marte.exploracao;
 
 public class Planalto {
 
-	private Integer x;
-	private Integer y;
+	private Coordenada coordenadaMaxima;
 	
-	public Planalto(Integer x, Integer y){
-		this.x = x;
-		this.y = y;
+	public Planalto(Coordenada coordenada){
+		this.coordenadaMaxima = coordenada;
 	}
 
-	public Integer getX() {
-		return this.x;
+	public Coordenada getCoordenadaMaxima(){
+		return this.coordenadaMaxima;
 	}
 
-	public Integer getY() {
-		return this.y;
-	}
-	
-	
 }

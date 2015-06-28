@@ -13,14 +13,15 @@ public class NasaTest {
 		 
 		Nasa nasa = new Nasa();
 			
-		Planalto planalto = new Planalto(5, 5);
+		
 			
-		String instrucoes = "1 2 N\n"+
+		String instrucoes =   "5 5 N\n"+
+				              "1 2 N\n"+
 					  		  "LMLMLMLMM\n"+
 					  		  "3 3 E\n"+
 					  		  "MMRMMRMRRM\n";
 		 
-	 	 assertEquals(retornoEsperado, nasa.enviaSondas(planalto, instrucoes));
+	 	 assertEquals(retornoEsperado, nasa.enviarSondas(instrucoes));
 	 }
 	 
 }
