@@ -27,26 +27,38 @@ public class Nasa {
 		
 		Sonda sonda = getSonda(idSonda, planalto, posicaoSonda);
 		
-		char[] acoes = instrucoes.toCharArray();
-		for(char acao : acoes){
-			sonda.executar(Acao.getAcao(acao));
+		try{
+			
+			sonda.executar(instrucoes);
+			
+		}catch(IllegalArgumentException e){
+			throw new IllegalArgumentException("sonda."+idSonda+" ação inválida "+instrucoes);
 		}
 		
 		return sonda.toString();
 	}
 
-	private Coordenada getCoodernada(String stX, String stY){
-		Integer x = Integer.parseInt(stX);
-		Integer y = Integer.parseInt(stY);
-
-		return new Coordenada(x, y);
+	private Coordenada getCoodernada(String identificador, String stX, String stY){
+		
+		Coordenada coordenada;
+		
+		try{
+			Integer x = Integer.parseInt(stX);
+			Integer y = Integer.parseInt(stY);
+			
+			coordenada = new Coordenada(x, y);
+		}catch(NumberFormatException e){
+			throw new IllegalArgumentException(identificador+" coordenadas inválidas "+stX+" "+stY);
+		}
+	  
+		return coordenada; 
 	}
 	
 	private Planalto getPlanalto(String posicaoPlanalto){
 		
 		String[] dadosPosicaoPlanalto = posicaoPlanalto.split(" ");		
 		
-		Coordenada coordenada = getCoodernada(dadosPosicaoPlanalto[0], dadosPosicaoPlanalto[1]);
+		Coordenada coordenada = getCoodernada("planalto ",dadosPosicaoPlanalto[0], dadosPosicaoPlanalto[1]);
 		
 		Planalto planalto = new Planalto(coordenada);
 		
@@ -56,13 +68,21 @@ public class Nasa {
 	
 	private Sonda getSonda(Integer idSonda, Planalto planalto, String posicaoSonda){
 		
-		String[] dadosPosicaoSonda = posicaoSonda.split(" ");		
+		String[] dadosPosicaoSonda = posicaoSonda.split(" ");
 		
-		Coordenada coordenada = getCoodernada(dadosPosicaoSonda[0], dadosPosicaoSonda[1]);
+		if(dadosPosicaoSonda.length < 3){
+			throw new IllegalArgumentException("sonda."+idSonda+" coordenadas inválidas "+posicaoSonda);
+		}
+		
+		Coordenada coordenada = getCoodernada("sonda."+idSonda, dadosPosicaoSonda[0], dadosPosicaoSonda[1]);
 		
 		Direcao direcao = Direcao.valueOf(dadosPosicaoSonda[2]);
+		
+		if(direcao == null){
+			throw new IllegalArgumentException("sonda."+idSonda+" direcao inválida "+direcao);
+		}
 				
-		Sonda sonda = new Sonda(idSonda, coordenada, direcao, planalto);
+		Sonda sonda = new Sonda(coordenada, direcao, planalto);
 		
 		return sonda;
 	}

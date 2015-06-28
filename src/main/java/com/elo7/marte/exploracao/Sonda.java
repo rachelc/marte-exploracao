@@ -2,18 +2,25 @@ package com.elo7.marte.exploracao;
 
 public class Sonda {
 	
-	private Integer idSonda;
 	private Coordenada coordenada;
 	private Direcao direcao;
 	private Planalto planalto;
 	
-	public Sonda(Integer idSonda, Coordenada coordenada, Direcao direcao, Planalto planalto){
-		this.idSonda = idSonda;
+	public Sonda(Coordenada coordenada, Direcao direcao, Planalto planalto){
 		this.coordenada = coordenada;
 		this.direcao = direcao;
 		this.planalto = planalto;
 	}
 
+
+	public void executar(String instrucoes){
+		
+		char[] acoes = instrucoes.toCharArray();
+		for(char acao : acoes){
+			this.executar(Acao.getAcao(acao));
+		}
+		
+	}
 	
 	public void executar(Acao acao){
 		
@@ -57,16 +64,6 @@ public class Sonda {
 		}
 						
 	}
-
-	public Integer getIdSonda() {
-		return idSonda;
-	}
-
-
-	public void setIdSonda(Integer idSonda) {
-		this.idSonda = idSonda;
-	}
-
 
 	@Override
 	public String toString() {
