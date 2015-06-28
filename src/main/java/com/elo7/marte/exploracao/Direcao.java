@@ -17,7 +17,7 @@ public enum Direcao {
 	}
 					
 	
-	public Direcao viraDireita(){
+	public Direcao virarDireita(){
 		
 		Integer novaDirecao = ordinal()+1;
 		if(novaDirecao > 3){
@@ -28,7 +28,7 @@ public enum Direcao {
 	}
 	
 	
-	public Direcao viraEsquerda(){
+	public Direcao virarEsquerda(){
 
 		Integer novaDirecao = this.ordinal()-1;
 		if(novaDirecao < 0){

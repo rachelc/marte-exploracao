@@ -7,39 +7,30 @@ public class Sonda {
 	private Direcao direcao;
 	private Planalto planalto;
 	
-	private static char ESQUERDA = 'L';
-	private static char DIREITA = 'R';
-	
-	public Sonda(Integer x, Integer y, Direcao coordenada, Planalto planalto){
+	public Sonda(Integer x, Integer y, Direcao direcao, Planalto planalto){
 		this.x = x;
 		this.y = y;
-		this.direcao = coordenada;
+		this.direcao = direcao;
 		this.planalto = planalto;
 	}
 
 	
-	public String execute(String instrucoes){
+	public void execute(Acao acao){
 		
-		char[] acoes = instrucoes.toCharArray();
-		
-		for(char acao: acoes){
-			if(acao == 'M'){
+		if(acao.equals(Acao.MOVER)){
 				move();
-			}else{
-				gira(acao);
-			}
+		}else{
+			gira(acao);
 		}
-		
-		return x+" "+y+" "+direcao;
 	}
 	
-	private void gira(char acao){
-		if(acao == ESQUERDA){
-			direcao = direcao.viraEsquerda();
+	private void gira(Acao acao){
+		if(acao.equals(Acao.ESQUERDA)){
+			direcao = direcao.virarEsquerda();
 		}
 		
-		if(acao == DIREITA){
-			direcao = direcao.viraDireita();
+		if(acao.equals(Acao.DIREITA)){
+			direcao = direcao.virarDireita();
 		}
 	}
 	
@@ -78,4 +69,13 @@ public class Sonda {
 		}		
 		
 	}
+
+
+	@Override
+	public String toString() {
+		return x+" "+y+" "+direcao;
+	}
+	
+	
+	
 }

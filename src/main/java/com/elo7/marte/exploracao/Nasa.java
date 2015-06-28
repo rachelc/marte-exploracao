@@ -29,7 +29,13 @@ public class Nasa {
 		String direcao = st.nextToken();
 				
 		Sonda sonda = new Sonda(x, y, Direcao.valueOf(direcao), planalto);
-		return sonda.execute(instrucoes);
+		
+		char[] acoes = instrucoes.toCharArray();
+		for(char acao : acoes){
+			sonda.execute(Acao.getAcao(acao));
+		}
+		
+		return sonda.toString();
 	}
 		
 }
