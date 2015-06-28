@@ -32,7 +32,7 @@ public class Nasa {
 		
 		char[] acoes = instrucoes.toCharArray();
 		for(char acao : acoes){
-			sonda.execute(Acao.getAcao(acao));
+			sonda.executar(Acao.getAcao(acao));
 		}
 		
 		return sonda.toString();

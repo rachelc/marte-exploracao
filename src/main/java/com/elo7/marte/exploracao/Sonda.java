@@ -15,16 +15,16 @@ public class Sonda {
 	}
 
 	
-	public void execute(Acao acao){
+	public void executar(Acao acao){
 		
 		if(acao.equals(Acao.MOVER)){
-				move();
+				mover();
 		}else{
-			gira(acao);
+			girar(acao);
 		}
 	}
 	
-	private void gira(Acao acao){
+	private void girar(Acao acao){
 		if(acao.equals(Acao.ESQUERDA)){
 			direcao = direcao.virarEsquerda();
 		}
@@ -34,7 +34,7 @@ public class Sonda {
 		}
 	}
 	
-	private void move(){
+	private void mover(){
 		
 		if(direcao.equals(Direcao.N)){
 			y++;

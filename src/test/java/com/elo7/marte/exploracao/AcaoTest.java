@@ -21,7 +21,7 @@ public class AcaoTest {
 
 	@Test(expected=IllegalArgumentException.class)
 	public void testGetAcaoInvalida() {
-		Acao acao = Acao.getAcao('X');
+		Acao.getAcao('X');
 	}
 	
 }
