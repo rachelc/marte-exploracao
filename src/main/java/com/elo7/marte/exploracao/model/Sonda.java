@@ -1,12 +1,7 @@
 package com.elo7.marte.exploracao.model;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 public class Sonda {
 	
@@ -14,6 +9,7 @@ public class Sonda {
 	private Direcao direcao;
 	private Planalto planalto;
 	private Integer sondaId;
+	private Boolean processada = false;
 	
 	private List<Acao> acoes;
 	
@@ -44,13 +40,15 @@ public class Sonda {
 
 	public void executarAcoes(){
 		
-		if(acoes == null){
+		if(acoes == null || processada){
 			return;
 		}
 		
 		for(Acao acao : acoes){
 			executar(acao);
 		}
+		
+		this.processada = true;
 		
 	}
 	
@@ -60,7 +58,7 @@ public class Sonda {
 			return;
 		}
 		
-		if(acao.equals(Acao.MOVER)){
+		if(acao.equals(Acao.M)){
 				mover();
 		}else{
 			girar(acao);
@@ -73,11 +71,11 @@ public class Sonda {
 			return;
 		}
 		
-		if(acao.equals(Acao.ESQUERDA)){
+		if(acao.equals(Acao.L)){
 			direcao = direcao.virarEsquerda();
 		}
 		
-		if(acao.equals(Acao.DIREITA)){
+		if(acao.equals(Acao.R)){
 			direcao = direcao.virarDireita();
 		}
 	}

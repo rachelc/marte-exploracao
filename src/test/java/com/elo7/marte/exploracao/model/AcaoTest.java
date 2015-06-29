@@ -11,13 +11,13 @@ public class AcaoTest {
 	@Test
 	public void testGetAcao() {
 		Acao acao = Acao.getAcao('M');
-		assertEquals(Acao.MOVER, acao);
+		assertEquals(Acao.M, acao);
 		
 		acao = Acao.getAcao('L');
-		assertEquals(Acao.ESQUERDA, acao);
+		assertEquals(Acao.L, acao);
 
 		acao = Acao.getAcao('R');
-		assertEquals(Acao.DIREITA, acao);
+		assertEquals(Acao.R, acao);
 		
 	}
 

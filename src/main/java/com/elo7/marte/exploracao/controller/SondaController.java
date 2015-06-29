@@ -32,7 +32,7 @@ public class SondaController {
 	Sonda addSonda(@PathVariable Integer sondaId, @RequestBody Sonda sonda){
 		
 		sonda.setSondaId(sondaId);
-		nasa.addSonda(sondaId, sonda);
+		nasa.addSonda(sondaId, sonda);				
 		
 		return sonda;
 	}

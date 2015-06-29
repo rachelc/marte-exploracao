@@ -2,22 +2,22 @@ package com.elo7.marte.exploracao.model;
 
 public enum Acao {
 
-	ESQUERDA, DIREITA, MOVER;
+	L, R, M;
 	
 	public static Acao getAcao(char acao){
 		if(acao == 'L'){
-			return ESQUERDA;
+			return L;
 		}
 		
 		if(acao == 'R'){
-			return DIREITA;
+			return R;
 		}
 
 		if(acao == 'M'){
-			return MOVER;
+			return M;
 		}		
 		
-		throw new IllegalArgumentException("Ação inválida "+acao);
+		throw new IllegalArgumentException("Aï¿½ï¿½o invï¿½lida "+acao);
 	}
 	
 }

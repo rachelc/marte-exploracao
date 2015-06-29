@@ -31,11 +31,11 @@ public class SondaTest {
 		
 		Sonda sonda = new Sonda(sondaId, coordenadaSonda, Direcao.N, planalto);
 		
-		sonda.executar(Acao.MOVER);		
+		sonda.executar(Acao.M);		
 		assertEquals("1 2 N", sonda.toString());
 		
 		// Sonda deve parar na borda
-		sonda.executar(Acao.MOVER);				
+		sonda.executar(Acao.M);				
 		assertEquals("1 2 N", sonda.toString());				
 	}
 
@@ -44,11 +44,11 @@ public class SondaTest {
 		
 		Sonda sonda = new Sonda(sondaId, coordenadaSonda, Direcao.E, planalto);
 		
-		sonda.executar(Acao.MOVER);		
+		sonda.executar(Acao.M);		
 		assertEquals("2 1 E", sonda.toString());
 		
 		// Sonda deve parar na borda
-		sonda.executar(Acao.MOVER);				
+		sonda.executar(Acao.M);				
 		assertEquals("2 1 E", sonda.toString());				
 	}
 
@@ -57,11 +57,11 @@ public class SondaTest {
 		
 		Sonda sonda = new Sonda(sondaId, coordenadaSonda, Direcao.W, planalto);
 		
-		sonda.executar(Acao.MOVER);		
+		sonda.executar(Acao.M);		
 		assertEquals("0 1 W", sonda.toString());
 		
 		// Sonda deve parar na borda
-		sonda.executar(Acao.MOVER);				
+		sonda.executar(Acao.M);				
 		assertEquals("0 1 W", sonda.toString());				
 	}
 
@@ -70,11 +70,11 @@ public class SondaTest {
 		
 		Sonda sonda = new Sonda(sondaId, coordenadaSonda, Direcao.S, planalto);
 		
-		sonda.executar(Acao.MOVER);		
+		sonda.executar(Acao.M);		
 		assertEquals("1 0 S", sonda.toString());
 		
 		// Sonda deve parar na borda
-		sonda.executar(Acao.MOVER);				
+		sonda.executar(Acao.M);				
 		assertEquals("1 0 S", sonda.toString());				
 	}
 
@@ -83,7 +83,7 @@ public class SondaTest {
 		
 		Sonda sonda = new Sonda(sondaId, coordenadaSonda, Direcao.N, planalto);
 		
-		sonda.executar(Acao.DIREITA);
+		sonda.executar(Acao.R);
 		assertEquals("1 1 E", sonda.toString());
 	}
 
@@ -92,7 +92,7 @@ public class SondaTest {
 		
 		Sonda sonda = new Sonda(sondaId, coordenadaSonda, Direcao.N, planalto);
 		
-		sonda.executar(Acao.ESQUERDA);
+		sonda.executar(Acao.L);
 		assertEquals("1 1 W", sonda.toString());
 	}
 	
