@@ -5,6 +5,10 @@ public class Coordenada {
 	private Integer x;
 	private Integer y;
 	
+	public Coordenada(){
+		
+	}
+	
 	public Coordenada(Integer x, Integer y){
 		this.x = x;
 		this.y = y;

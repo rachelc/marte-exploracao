@@ -11,6 +11,8 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
  
 	<context:component-scan base-package="com.elo7.marte.exploracao.controller" />
+	<context:component-scan base-package="com.elo7.marte.exploracao.model" />
+	<context:component-scan base-package="com.elo7.marte.exploracao.leitura" />
 	 
 	<mvc:annotation-driven />
  

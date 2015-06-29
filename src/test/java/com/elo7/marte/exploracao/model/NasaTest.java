@@ -32,12 +32,12 @@ public class NasaTest {
 					  		  "3 3 E\n"+
 					  		  "MMRMMRMRRM\n";
 
-		nasa.carregaSondas(instrucoes);
+		nasa.addSondas(instrucoes);
 		nasa.enviarSondas();
 		
 		
-		 String retornoEsperado = "1 3 N\n"+
-   			  					  "5 1 E\n";
+		 String retornoEsperado = "5 1 E\n"+
+				 				  "1 3 N\n";
 
 		 assertEquals(retornoEsperado, nasa.relatorioSondas());
 	 }

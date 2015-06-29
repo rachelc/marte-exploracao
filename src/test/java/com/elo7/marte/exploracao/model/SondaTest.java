@@ -15,6 +15,7 @@ public class SondaTest {
 	
 	Coordenada coordenadaSonda;
 	Planalto planalto;
+	Integer sondaId = 0;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -28,7 +29,7 @@ public class SondaTest {
 	@Test
 	public void testMoverNorte() {
 		
-		Sonda sonda = new Sonda(coordenadaSonda, Direcao.N, planalto);
+		Sonda sonda = new Sonda(sondaId, coordenadaSonda, Direcao.N, planalto);
 		
 		sonda.executar(Acao.MOVER);		
 		assertEquals("1 2 N", sonda.toString());
@@ -41,7 +42,7 @@ public class SondaTest {
 	@Test
 	public void testMoverLeste() {
 		
-		Sonda sonda = new Sonda(coordenadaSonda, Direcao.E, planalto);
+		Sonda sonda = new Sonda(sondaId, coordenadaSonda, Direcao.E, planalto);
 		
 		sonda.executar(Acao.MOVER);		
 		assertEquals("2 1 E", sonda.toString());
@@ -54,7 +55,7 @@ public class SondaTest {
 	@Test
 	public void testMoverOeste() {
 		
-		Sonda sonda = new Sonda(coordenadaSonda, Direcao.W, planalto);
+		Sonda sonda = new Sonda(sondaId, coordenadaSonda, Direcao.W, planalto);
 		
 		sonda.executar(Acao.MOVER);		
 		assertEquals("0 1 W", sonda.toString());
@@ -67,7 +68,7 @@ public class SondaTest {
 	@Test
 	public void testMoverSul() {
 		
-		Sonda sonda = new Sonda(coordenadaSonda, Direcao.S, planalto);
+		Sonda sonda = new Sonda(sondaId, coordenadaSonda, Direcao.S, planalto);
 		
 		sonda.executar(Acao.MOVER);		
 		assertEquals("1 0 S", sonda.toString());
@@ -80,7 +81,7 @@ public class SondaTest {
 	@Test
 	public void testGirarDireita() {
 		
-		Sonda sonda = new Sonda(coordenadaSonda, Direcao.N, planalto);
+		Sonda sonda = new Sonda(sondaId, coordenadaSonda, Direcao.N, planalto);
 		
 		sonda.executar(Acao.DIREITA);
 		assertEquals("1 1 E", sonda.toString());
@@ -89,7 +90,7 @@ public class SondaTest {
 	@Test
 	public void testGirarEsquerda() {
 		
-		Sonda sonda = new Sonda(coordenadaSonda, Direcao.N, planalto);
+		Sonda sonda = new Sonda(sondaId, coordenadaSonda, Direcao.N, planalto);
 		
 		sonda.executar(Acao.ESQUERDA);
 		assertEquals("1 1 W", sonda.toString());
