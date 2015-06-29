@@ -1,9 +1,15 @@
-package com.elo7.marte.exploracao;
+package com.elo7.marte.exploracao.model;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.elo7.marte.exploracao.model.Acao;
+import com.elo7.marte.exploracao.model.Coordenada;
+import com.elo7.marte.exploracao.model.Direcao;
+import com.elo7.marte.exploracao.model.Planalto;
+import com.elo7.marte.exploracao.model.Sonda;
 
 public class SondaTest {
 	

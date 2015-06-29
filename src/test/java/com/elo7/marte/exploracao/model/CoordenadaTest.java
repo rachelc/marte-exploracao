@@ -1,9 +1,11 @@
-package com.elo7.marte.exploracao;
+package com.elo7.marte.exploracao.model;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.elo7.marte.exploracao.model.Coordenada;
 
 public class CoordenadaTest {
 

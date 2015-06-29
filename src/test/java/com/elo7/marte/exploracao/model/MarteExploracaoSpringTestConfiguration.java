@@ -1,4 +1,4 @@
-package com.elo7.marte.exploracao;
+package com.elo7.marte.exploracao.model;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;

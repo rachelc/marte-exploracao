@@ -1,4 +1,4 @@
-package com.elo7.marte.exploracao;
+package com.elo7.marte.exploracao.model;
 
 import java.util.List;
 
