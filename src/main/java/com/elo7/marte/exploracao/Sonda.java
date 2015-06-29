@@ -1,23 +1,37 @@
 package com.elo7.marte.exploracao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Sonda {
 	
 	private Coordenada coordenada;
 	private Direcao direcao;
 	private Planalto planalto;
 	
+	private List<Acao> acoes;
+	
 	public Sonda(Coordenada coordenada, Direcao direcao, Planalto planalto){
 		this.coordenada = coordenada;
 		this.direcao = direcao;
 		this.planalto = planalto;
+		this.acoes = new ArrayList<Acao>();
 	}
 
 
-	public void executar(String instrucoes){
+	public void carregarAcoes(String instrucoes){
 		
-		char[] acoes = instrucoes.toCharArray();
-		for(char acao : acoes){
-			this.executar(Acao.getAcao(acao));
+		char[] comandos = instrucoes.toCharArray();
+		for(char acao : comandos){
+			acoes.add(Acao.getAcao(acao));
+		}
+		
+	}
+
+	public void executarAcoes(){
+		
+		for(Acao acao : acoes){
+			executar(acao);
 		}
 		
 	}
