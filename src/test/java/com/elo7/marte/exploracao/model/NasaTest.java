@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.elo7.marte.exploracao.configuracao.MarteExploracaoSpringTestConfiguration;
 import com.elo7.marte.exploracao.model.Nasa;
 
 @RunWith(SpringJUnit4ClassRunner.class)

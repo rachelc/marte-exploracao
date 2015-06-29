@@ -1,9 +1,14 @@
-package com.elo7.marte.exploracao.model;
+package com.elo7.marte.exploracao.leitura;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+
+import com.elo7.marte.exploracao.model.Coordenada;
+import com.elo7.marte.exploracao.model.Direcao;
+import com.elo7.marte.exploracao.model.Planalto;
+import com.elo7.marte.exploracao.model.Sonda;
 
 @Component
 public class LeitorDadosSondaTexto implements LeitorDadosSonda{

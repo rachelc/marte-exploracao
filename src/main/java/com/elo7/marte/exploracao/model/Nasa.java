@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.elo7.marte.exploracao.leitura.LeitorDadosSonda;
+
 @Component
 public class Nasa {
 	
