@@ -9,8 +9,13 @@ public class Nasa {
 			return "";
 		}
 
-		String[] instrucoes = instrucoesGerais.split("\n");		
-		Planalto planalto = getPlanalto(instrucoes[0]);
+		String[] instrucoes = instrucoesGerais.split("\n");
+		
+		if(instrucoes.length < 3|| (instrucoes.length % 2 != 1 )){
+			throw new IllegalArgumentException("instruções inválidas, linhas insuficientes");
+		}		
+		
+		Planalto planalto = getPlanalto(instrucoes[0]);		
 		
 		StringBuffer resultado = new StringBuffer();
 		Integer idSonda = 0;
@@ -32,7 +37,7 @@ public class Nasa {
 			sonda.executar(instrucoes);
 			
 		}catch(IllegalArgumentException e){
-			throw new IllegalArgumentException("sonda."+idSonda+" ação inválida "+instrucoes);
+			throw new IllegalArgumentException("sonda."+idSonda+" ação inválida: "+instrucoes);
 		}
 		
 		return sonda.toString();
@@ -48,7 +53,7 @@ public class Nasa {
 			
 			coordenada = new Coordenada(x, y);
 		}catch(NumberFormatException e){
-			throw new IllegalArgumentException(identificador+" coordenadas inválidas "+stX+" "+stY);
+			throw new IllegalArgumentException(identificador+" coordenadas inválidas: "+stX+" "+stY);
 		}
 	  
 		return coordenada; 
@@ -56,9 +61,14 @@ public class Nasa {
 	
 	private Planalto getPlanalto(String posicaoPlanalto){
 		
-		String[] dadosPosicaoPlanalto = posicaoPlanalto.split(" ");		
+		String[] dadosPosicaoPlanalto = posicaoPlanalto.split(" ");
 		
-		Coordenada coordenada = getCoodernada("planalto ",dadosPosicaoPlanalto[0], dadosPosicaoPlanalto[1]);
+		if(dadosPosicaoPlanalto.length < 2){
+			throw new IllegalArgumentException("planalto coordenadas inválidas: "+posicaoPlanalto);
+		}
+		
+		
+		Coordenada coordenada = getCoodernada("planalto",dadosPosicaoPlanalto[0], dadosPosicaoPlanalto[1]);
 		
 		Planalto planalto = new Planalto(coordenada);
 		
@@ -71,7 +81,7 @@ public class Nasa {
 		String[] dadosPosicaoSonda = posicaoSonda.split(" ");
 		
 		if(dadosPosicaoSonda.length < 3){
-			throw new IllegalArgumentException("sonda."+idSonda+" coordenadas inválidas "+posicaoSonda);
+			throw new IllegalArgumentException("sonda."+idSonda+" coordenadas inválidas: "+posicaoSonda);
 		}
 		
 		Coordenada coordenada = getCoodernada("sonda."+idSonda, dadosPosicaoSonda[0], dadosPosicaoSonda[1]);
@@ -79,7 +89,7 @@ public class Nasa {
 		Direcao direcao = Direcao.valueOf(dadosPosicaoSonda[2]);
 		
 		if(direcao == null){
-			throw new IllegalArgumentException("sonda."+idSonda+" direcao inválida "+direcao);
+			throw new IllegalArgumentException("sonda."+idSonda+" direcao inválida: "+direcao);
 		}
 				
 		Sonda sonda = new Sonda(coordenada, direcao, planalto);
